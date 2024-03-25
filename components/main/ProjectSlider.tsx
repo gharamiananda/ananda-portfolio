@@ -124,7 +124,6 @@ const ProjectSlider: React.FC = () => {
           animate={positions[positionIndexes[index]]}
           variants={imageVariants}
           transition={{ duration: 0.5 }}
-          // style={{ width: "40%", position: "absolute" }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
