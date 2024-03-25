@@ -119,12 +119,12 @@ const ProjectSlider: React.FC = () => {
       ].map((card: Card, index: number) => (
         <motion.div
           key={index}
-          className="rounded-[12px] relative"
+          className="rounded-[12px] absolute md:w-[40%] w-full"
           initial="center"
           animate={positions[positionIndexes[index]]}
           variants={imageVariants}
           transition={{ duration: 0.5 }}
-          style={{ width: "40%", position: "absolute" }}
+          // style={{ width: "40%", position: "absolute" }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
@@ -136,7 +136,7 @@ const ProjectSlider: React.FC = () => {
             className="w-full object-contain"
       />
 
-<motion.div className="absolute  left-50 bottom-0 p-4 w-100 h-full bg-slate-"
+<motion.div className="absolute  left-50 bottom-0 p-4 w-100 h-full bg-blue-800"
     whileHover={{ opacity: 1 }}
     initial={{ opacity: 0 }}
     animate={{ opacity: 0 }}
