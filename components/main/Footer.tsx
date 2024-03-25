@@ -3,6 +3,7 @@ import {
     RxGithubLogo
 } from "react-icons/rx";
 
+import Link from "next/link";
 import { FaWhatsapp, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
@@ -18,10 +19,10 @@ const Footer = () => {
                         <FaWhatsapp />
                         <span className="text-[15px] ml-[6px]">Whatsapp</span>    
                     </p>
-                    <p className="flex flex-row items-center my-[15px] cursor-pointer">
+                    <Link href={`https://github.com/gharamiananda?tab=repositories`} className="flex flex-row items-center my-[15px] cursor-pointer">
                         <RxGithubLogo />
                         <span className="text-[15px] ml-[6px]">Github</span>    
-                    </p>
+                    </Link>
                     <p className="flex flex-row items-center my-[15px] cursor-pointer">
                         <RxDiscordLogo />
                         <span className="text-[15px] ml-[6px]">Discord</span>    
@@ -37,10 +38,10 @@ const Footer = () => {
                         <RxGithubLogo />
                         <span className="text-[15px] ml-[6px]">Twitter</span>    
                     </p>
-                    <p className="flex flex-row items-center my-[15px] cursor-pointer">
+                    <Link href={`https://www.linkedin.com/in/anandagharami/`} className="flex flex-row items-center my-[15px] cursor-pointer">
                         <RxDiscordLogo />
                         <span className="text-[15px] ml-[6px]">Linkedin</span>    
-                    </p>
+                    </Link>
                 </div>
                 <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
                     <div className="font-bold text-[16px]">About</div>
