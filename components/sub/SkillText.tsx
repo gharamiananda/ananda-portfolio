@@ -1,8 +1,7 @@
 "use client"
-import React from 'react'
-import {motion} from 'framer-motion'
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from '@/utils/motion'
 import { SparklesIcon } from '@heroicons/react/24/solid'
+import { motion } from 'framer-motion'
 
 const SkillText = () => {
   return (
@@ -13,7 +12,7 @@ const SkillText = () => {
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[13px]">
-            Think better with Next js 13
+            Think better with Technologies
           </h1>
         </motion.div>
         <motion.div

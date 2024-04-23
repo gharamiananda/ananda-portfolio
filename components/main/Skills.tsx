@@ -2,8 +2,7 @@ import {
   Backend_skill,
   Frontend_skill,
   Full_stack,
-  Other_skill,
-  Skill_data
+  Other_skill
 } from "@/constants";
 import SkillDataProvider from "../sub/SkillDataProvider";
 import SkillText from "../sub/SkillText";
@@ -17,7 +16,7 @@ const Skills = () => {
     >
       <SkillText />
 
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+      {/* <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
         {Skill_data.map((image, index) => (
           <SkillDataProvider
             key={index}
@@ -27,7 +26,7 @@ const Skills = () => {
             index={index}
           />
         ))}
-      </div>
+      </div> */}
 
       <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
         {Frontend_skill.map((image, index) => (
