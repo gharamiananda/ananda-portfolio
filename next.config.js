@@ -1,46 +1,28 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  webpack: (config, options) => {
-    config.module.rules.push({
-      test: /\.(node)$/,
-      use: {
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-        },
-      },
-    });
-    return config;
-  },
+module.exports = {
   async redirects() {
     return [
       {
-        source: '/:path*',
-        has: [
-          {
-            type: 'query',
-            key: 'path',
-            value: '.+', // Matches any non-empty value
-          },
-        ],
+        source: '/about',
+        destination: '/',
         permanent: true,
-        destination: ({ params, query }) => {
-          // Remove unwanted characters from the path
-          const cleanedPath = params.path.replace(/[%20%]/g, '').replace(/ /g, '');
-          return `/${cleanedPath}`;
-        },
       },
       {
-        source: '/:path*',
-        destination: ({ params }) => {
-          // General cleanup for any unwanted characters
-          const cleanedPath = params.path.replace(/[%20%]/g, '').replace(/ /g, '');
-          return `/${cleanedPath}`;
-        },
+        source: '/old-blog/:slug',
+        destination: '/news/:slug',
         permanent: true,
+      },
+      {
+        source: '/:path((?!uk/).*)',
+        has: [
+          {
+            type: 'header',
+            key: 'x-vercel-ip-country',
+            value: 'GB',
+          },
+        ],
+        permanent: false,
+        destination: '/uk/:path*',
       },
     ];
   },
 };
-
-module.exports = nextConfig;
