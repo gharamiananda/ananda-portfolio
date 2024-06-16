@@ -3,6 +3,7 @@ import { motion, useAnimation, useMotionValue } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import ProjectBtn from "../sub/ProjectBtn";
+import { slideInFromLeft, slideInFromRight } from "@/utils/motion";
 
 interface Card {
   src: string;
@@ -72,7 +73,7 @@ const ProjectSlider: React.FC = () => {
     </h1>
     </div>
     <motion.div
-      className="relative flex items-center justify-center h-screen overflow-hidden"
+      className="relative flex items-center justify-center overflow-hidden"
       drag="x"
       dragConstraints={{
         left: 0,
@@ -153,19 +154,31 @@ const ProjectSlider: React.FC = () => {
     </motion.div>
        
       ))}
-      <div className="flex flex-row gap-3 mt-64">
-        <button
-          className="text-white mt-[400px] bg-indigo-400 rounded-md py-2 px-4 "
+      <div className="flex flex-row gap-3 mt-64 ">
+      
+
+<motion.div
+      initial="hidden"
+      animate="visible"
+      className="flex  mt-4 flex-row items-center justify-center px-20 mt-40 w-full z-[20] gap-10"
+    >
+        <motion.a
           onClick={handleBack}
+
+          variants={slideInFromRight(1)}
+          className="py-2 px-4  button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
         >
-          Back
-        </button>
-        <button
-          className="text-white mt-[400px] bg-indigo-400 rounded-md py-2 px-4"
-          onClick={handleNext}
+Prev        </motion.a>
+
+        <motion.a
+                  onClick={handleNext}
+
+          variants={slideInFromLeft(1)}
+          className="py-2 px-4 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
         >
-          Next
-        </button>
+Next        </motion.a>
+
+</motion.div>
       </div>
     </motion.div>
     </>
