@@ -84,14 +84,19 @@ export const Skill_data = [
     {
       name: "Discord",
       src: "/instagram.svg",
+      url:"https://www.instagram.com/ananda_gharami/"
     },
     {
       name: "Facebook",
       src: "/facebook.svg",
+      url:"https://www.facebook.com/ananda.gharami.75"
+
     },
     {
       name: "Instagram",
       src: "/discord.svg",
+      url:"https://www.facebook.com/ananda.gharami.75"
+
     },
   ];
   
@@ -261,7 +266,7 @@ export const Skill_data = [
  export const experiences = [   {
   title: "Web Designer",
   company_name: "Cogenhub private ltd",
-  icon: '../assets/images/cogentLogo.svg',
+  icon: '/cogentLogo.svg',
   iconBg: "#accbe1",
   date: "October 2021 - June 2022",
   points: [
@@ -273,7 +278,7 @@ export const Skill_data = [
 {
   title: "Frontend Developer",
   company_name: "Techwens software pvt ltd",
-  icon: '../assets/images/twlogo.svg',
+  icon: '/twlogo.svg',
   iconBg: "#a2d2ff",
   date: "Aug 2022 - Present",
   points: [
@@ -287,7 +292,7 @@ export const Skill_data = [
 {
   title: "Full stack Developer",
   company_name: "Techwens software pvt ltd",
-  icon: '../assets/images/twlogo.svg',
+  icon: '/twlogo.svg',
   iconBg: "#a2d2ff",
   date: "July 2023 - Present",
   points: [

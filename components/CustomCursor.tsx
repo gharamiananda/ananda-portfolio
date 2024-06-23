@@ -35,7 +35,7 @@ const CustomCursor: React.FC = () => {
   return (
     <motion.div
       ref={cursorRef}
-      className="cursor"
+      className="cursor hidden sm:block"
       initial={{ opacity: 0 ,dur:1}}
       animate={{ opacity: 1, }}
       exit={{ opacity: 0 }}

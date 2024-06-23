@@ -58,9 +58,9 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex flex-row gap-5">
+        <div className=" flex-row gap-5 hidden sm:flex">
           {Socials.map((social) => (
-           <Link  href={'/'}  key={social.name}>
+           <Link  href={social.url}  key={social.name}>
             <Image
               src={social.src}
               alt={social.name}

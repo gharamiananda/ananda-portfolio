@@ -88,10 +88,10 @@ const ProjectSlider: React.FC = () => {
       
       {[
         {
-          src: "/NextWebsite.png",
-          title: "Modern Next.js Portfolio",
+          src: "/blloddonation.png",
+          title: "Blood Donation System",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "Web app for blood donation system, it is build with nextjs with postgresql database",
         },
         {
           src: "/propertycontroll.png",
@@ -111,12 +111,12 @@ const ProjectSlider: React.FC = () => {
           description:
             "It is a ecommerce website for mainly Tshirts, it is build with nextjs with typescript with postgresql database",
         },
-        {
-          src: "/CardImage.png",
-          title: "Interactive Website Cards",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
+        // {
+        //   src: "/CardImage.png",
+        //   title: "Interactive Website Cards",
+        //   description:
+        //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        // },
       ].map((card: Card, index: number) => (
         <motion.div
           key={index}
@@ -133,10 +133,10 @@ const ProjectSlider: React.FC = () => {
             alt={card.title}
             width={1000}
             height={1000}
-            className="w-full object-contain"
+            className="sm:w-[80%]   w-full object-contain  mx-auto sm"
       />
 
-<motion.div className="absolute  left-50 bottom-0 p-4 w-100 h-full bg-blue-800"
+<motion.div className="absolute  left-50 bottom-0 p-4 w-100 h-full "
     whileHover={{ opacity: 1 }}
     initial={{ opacity: 0 }}
     animate={{ opacity: 0 }}
