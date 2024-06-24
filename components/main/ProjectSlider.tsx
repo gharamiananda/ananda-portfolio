@@ -74,14 +74,14 @@ const ProjectSlider: React.FC = () => {
     </div>
     <motion.div
       className="relative flex items-center justify-center overflow-hidden"
-      drag="x"
-      dragConstraints={{
-        left: 0,
-        right: sliderWrapperRef.current
-          ? sliderWrapperRef.current.offsetWidth
-          : 0,
-      }}
-      dragElastic={0.2}
+      // drag="x"
+      // dragConstraints={{
+      //   left: 0,
+      //   right: sliderWrapperRef.current
+      //     ? sliderWrapperRef.current.offsetWidth
+      //     : 0,
+      // }}
+      // dragElastic={0.2}
       style={{ x }}
       ref={sliderWrapperRef}
     >
@@ -111,12 +111,12 @@ const ProjectSlider: React.FC = () => {
           description:
             "It is a ecommerce website for mainly Tshirts, it is build with nextjs with typescript with postgresql database",
         },
-        // {
-        //   src: "/CardImage.png",
-        //   title: "Interactive Website Cards",
-        //   description:
-        //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        // },
+        {
+          src: "/techwenssite.png",
+          title: "Techwens Website",
+          description:
+            "COmpany website for tech wens, it is build with nextjs with postgresql database",
+        },
       ].map((card: Card, index: number) => (
         <motion.div
           key={index}
