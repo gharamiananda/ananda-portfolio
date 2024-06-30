@@ -10,18 +10,8 @@ import Resume from "@/components/main/Resume";
 import Skills from "@/components/main/Skills";
 
 
-type Post = {
-  title: string;
-  link: string;
-  guid: string;
-};
 
-type Props = {
-  posts: Post[];
-};
-
-
-const Home: React.FC<Props> = () => {
+const Home: React.FC = () => {
   return (
     <>
         <Navbar />

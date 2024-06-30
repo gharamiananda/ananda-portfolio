@@ -1,14 +1,9 @@
  "use client"
 
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import React, { useEffect } from 'react';
 
 const CustomCursor: React.FC = () => {
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const [scrollY, setScrollY] = useState(0);
 
-  const y = useMotionValue(0);
-  const opacity = useTransform(y, [0, 100], [1, 0]);
 
 
 
@@ -34,28 +29,8 @@ setTimeout(() =>{
   }
 
   useEffect(() => {
-    // const handleMouseMove = (event: MouseEvent) => {
-    //   if (cursorRef.current) {
-    //     cursorRef.current.style.left = `${event.clientX}px`;
-    //     cursorRef.current.style.top = `${event.clientY}px`;
-    //   }
-      
-    // };
-
-    // const handleScroll = () => {
-    //   setScrollY(window.scrollY);
-    //   y.set(window.scrollY);
-    // };
 
     document.addEventListener('mousemove', sparkAnimation);
-  // return  document.removeEventListener('mousemove', sparkAnimation);
-
-    // window.addEventListener('scroll', handleScroll);
-
-    // return () => {
-    //   document.removeEventListener('mousemove', sparkAnimation);
-    //   window.removeEventListener('scroll', handleScroll);
-    // };
   }, []);
 
   return (

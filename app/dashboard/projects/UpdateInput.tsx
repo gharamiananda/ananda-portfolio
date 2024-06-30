@@ -61,7 +61,7 @@ const InputUpdate=({ it ,updateProjectHandler,fieldName}: { it: FormValues ,upda
         <TiTick  size={30} className='cursor-pointer'  />
         </button>
       <button type='button'>
-         <RxCross1  onClick={e => setIsEdit(prev => !prev)} className='cursor-pointer' />
+         <RxCross1  onClick={() => setIsEdit(prev => !prev)} className='cursor-pointer' />
         </button> 
       </div>
     </div>

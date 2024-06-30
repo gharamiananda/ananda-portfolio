@@ -88,7 +88,7 @@ const UploadImage = ({it,updateProjectHandler}:{it:FormValues,updateProjectHandl
                         <TiTick size={30} className='cursor-pointer' />
                     </button>
                     <button type='button'>
-                        <RxCross1 onClick={e => {
+                        <RxCross1 onClick={() => {
                             setImagePreviewUrl('')
 
                             setImageFile(null)

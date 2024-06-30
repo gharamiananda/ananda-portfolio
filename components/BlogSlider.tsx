@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 // import required modules
 
 import { Pagination, Navigation, HashNavigation } from 'swiper/modules';
+import Image from 'next/image';
 
 
 
@@ -98,7 +99,7 @@ const BlogSlider: React.FC <Props>= ({posts}) => {
                 <p className="mb-5 font-light text-gray-500 dark:text-gray-400">{post.contentSnippet}</p>
                 <div className="flex justify-between items-center">
                   <div className="flex items-center space-x-4">
-                    <img
+                    <Image
                       className="w-7 h-7 rounded-full"
                       src="https://avatars.githubusercontent.com/u/86967865?v=4"
                       alt="Author's avatar"
