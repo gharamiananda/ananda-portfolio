@@ -10,51 +10,56 @@ const CustomCursor: React.FC = () => {
   const y = useMotionValue(0);
   const opacity = useTransform(y, [0, 100], [1, 0]);
 
+
+
+  function sparkAnimation(event:any){
+    let i =document.createElement('i');
+
+    i.style.left = event.pageX + 'px';
+    i.style.top = event.pageY + 'px';
+    i.style.scale = `${Math.random()*2+1}`;
+    i.style.setProperty('--x',getRandomTransitionValue());
+    i.style.setProperty('--y',getRandomTransitionValue());
+
+document.body.appendChild(i);
+
+setTimeout(() =>{
+  document.body.removeChild(i);
+},2000)
+
+  }
+
+  function getRandomTransitionValue(){
+    return `${Math.random() * 400 +-200}px`;
+  }
+
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = `${event.clientX}px`;
-        cursorRef.current.style.top = `${event.clientY}px`;
-      }
-    };
+    // const handleMouseMove = (event: MouseEvent) => {
+    //   if (cursorRef.current) {
+    //     cursorRef.current.style.left = `${event.clientX}px`;
+    //     cursorRef.current.style.top = `${event.clientY}px`;
+    //   }
+      
+    // };
 
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-      y.set(window.scrollY);
-    };
+    // const handleScroll = () => {
+    //   setScrollY(window.scrollY);
+    //   y.set(window.scrollY);
+    // };
 
-    document.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousemove', sparkAnimation);
+  // return  document.removeEventListener('mousemove', sparkAnimation);
 
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [y]);
+    // window.addEventListener('scroll', handleScroll);
+
+    // return () => {
+    //   document.removeEventListener('mousemove', sparkAnimation);
+    //   window.removeEventListener('scroll', handleScroll);
+    // };
+  }, []);
 
   return (
-    <motion.div
-      ref={cursorRef}
-      className="cursor hidden sm:block"
-      initial={{ opacity: 0 ,dur:1}}
-      animate={{ opacity: 1, }}
-      exit={{ opacity: 0 }}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '30px',
-        height: '30px',
-        // backgroundColor: 'white',
-        border:'2px solid white',
-        borderRadius: '50%',
-        pointerEvents: 'none',
-        zIndex: 9999,
-      }}
-      
-    >
-        
-        </motion.div>
+   <></>
   );
 };
 

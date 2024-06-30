@@ -1,11 +1,18 @@
 module.exports = {
+//   env: {
+//     EMAIL: 'anandagharami.am@gmail.com',
+// PASSWORD:12345678
+
+//   },
   images: {
     domains: [
       "img.etimg.com",
       "assets.vogue.com",
       "m.media-amazon.com",
       "upload.wikimedia.org",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfSevI5MxX0yErYi-Mg9SL8sZZttIE3TnbR-joopMHQbs4-yEQnSPXgLk1HTzKl4JjwEw&usqp=CAU"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfSevI5MxX0yErYi-Mg9SL8sZZttIE3TnbR-joopMHQbs4-yEQnSPXgLk1HTzKl4JjwEw&usqp=CAU",
+      "res.cloudinary.com"
+
     ],
   },
   async redirects() {

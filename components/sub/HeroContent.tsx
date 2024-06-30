@@ -8,8 +8,19 @@ import {
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect } from "react";
 
 const HeroContent = () => {
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/ananda_software_engineer.pdf'; // URL to the PDF file
+    link.download = 'ananda_software_engineer.pdf'; // Name of the downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+ 
+
   return (
     <motion.div
       initial="hidden"
@@ -47,12 +58,24 @@ const HeroContent = () => {
         >
           I&apos;m a Full Stack Software Engineer with experience in Website,with 3 year&lsquo;s of experience. Check out my projects and skills.
         </motion.p>
-        <motion.a
+        <motion.div 
+        
           variants={slideInFromLeft(1)}
-          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
-        >
+        className="flex gap-4 w-full">
+
+        <a
+          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg px-2"
+          >
           Learn More!
-        </motion.a>
+        </a>
+        <a
+       onClick={handleDownload}
+          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg px-2"
+          >
+          Download Resume!
+        </a>
+          </motion.div>
+
       </div>
 
       <motion.div
