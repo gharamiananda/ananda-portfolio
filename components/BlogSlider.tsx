@@ -1,19 +1,19 @@
 'use client'
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 
 // import required modules
 
-import { Pagination, Navigation, HashNavigation } from 'swiper/modules';
 import Image from 'next/image';
+import { HashNavigation, Navigation, Pagination } from 'swiper/modules';
 
 
 
@@ -32,6 +32,17 @@ type Post = {
   
 
 const BlogSlider: React.FC <Props>= ({posts}) => {
+
+
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() =>{
+    setIsClient(true)
+  },[]);
+
+  if(!isClient){
+    return null;
+  }
 
   return (
     <div className="relative w-full overflow-hidden">
@@ -103,6 +114,8 @@ const BlogSlider: React.FC <Props>= ({posts}) => {
                       className="w-7 h-7 rounded-full"
                       src="https://avatars.githubusercontent.com/u/86967865?v=4"
                       alt="Author's avatar"
+                      width={100}
+                      height={100}
                     />
                     <span className="font-medium dark:text-white">{post.author}</span>
                   </div>
