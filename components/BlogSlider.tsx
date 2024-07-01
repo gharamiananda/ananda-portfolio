@@ -82,7 +82,7 @@ const BlogSlider: React.FC <Props>= ({posts}) => {
 
         {
 
-([...posts,...posts,...posts,...posts,...posts,...posts,...posts,...posts,...posts,...posts,...posts,...posts,...posts,...posts,...posts,]||[]).map((post) => (
+(posts||[]).map((post) => (
     <SwiperSlide   key={post.guid} className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
           <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div className="flex justify-between items-center mb-5 text-gray-500">

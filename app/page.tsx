@@ -1,4 +1,5 @@
 import Blogs from "@/components/Blogs";
+// import Contact from "@/components/Contact";
 import Encryption from "@/components/main/Encryption";
 import Footer from "@/components/main/Footer";
 // import Experience from "@/components/main/Experiancce";
@@ -28,6 +29,10 @@ const Home: React.FC = () => {
         {/* <WorkExperience /> */}
         <Blogs />
       </div>
+      <div className='relative z-0'>
+          {/* <Contact /> */}
+          {/* <StarsCanvas /> */}
+        </div>
     </main>
     <Footer />
 
