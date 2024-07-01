@@ -1,9 +1,9 @@
 "use client"
+import { slideInFromLeft, slideInFromRight } from "@/utils/motion";
 import { motion, useAnimation, useMotionValue } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import ProjectBtn from "../sub/ProjectBtn";
-import { slideInFromLeft, slideInFromRight } from "@/utils/motion";
 
 interface Card {
   src: string;
@@ -160,7 +160,7 @@ const ProjectSlider: React.FC = () => {
 <motion.div
       initial="hidden"
       animate="visible"
-      className="flex  mt-4 flex-row items-center justify-center px-20 mt-40 w-full z-[20] gap-10"
+      className="flex   flex-row items-center justify-center px-20 mt-40 w-full z-[20] gap-10"
     >
         <motion.a
           onClick={handleBack}
