@@ -4,11 +4,7 @@
 import React, { useEffect } from 'react';
 
 const CustomCursor: React.FC = () => {
-
-
-
-
-  function sparkAnimation(event:any){
+ function sparkAnimation(event:any){
     let i =document.createElement('i');
 
     i.style.left = event.pageX + 'px';
@@ -30,7 +26,6 @@ setTimeout(() =>{
   }
 
   useEffect(() => {
-
     document.addEventListener('mousemove', sparkAnimation);
   }, []);
 
