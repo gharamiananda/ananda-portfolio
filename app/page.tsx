@@ -11,7 +11,6 @@ import Resume from "@/components/main/Resume";
 import Skills from "@/components/main/Skills";
 
 
-
 const Home: React.FC = () => {
   return (
     <>
