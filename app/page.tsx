@@ -12,6 +12,7 @@ import Skills from "@/components/main/Skills";
 
 
 const Home: React.FC = () => {
+  const promiseProjects = fetch(`https://portfolio-l47727dv4-anandas-projects-91b9a04e.vercel.app/api/projects`)
   return (
     <>
         <Navbar />
@@ -23,7 +24,7 @@ const Home: React.FC = () => {
         <Encryption />
         {/* <Projects /> */}
         <Resume />
-        <ProjectSlider />
+        <ProjectSlider  />
         {/* <Experience /> */}
         {/* <WorkExperience /> */}
         <Blogs />

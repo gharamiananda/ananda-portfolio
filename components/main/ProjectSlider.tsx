@@ -1,25 +1,45 @@
 "use client"
 import { slideInFromLeft, slideInFromRight } from "@/utils/motion";
 import { motion, useAnimation, useMotionValue } from "framer-motion";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import ProjectBtn from "../sub/ProjectBtn";
 import Link from "next/link";
 import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 
 
-interface Card {
-  src: string;
-  title: string;
-  description: string;
-}
+const ProjectSlider: React.FC= ({
+  
+}) => {
 
-const ProjectSlider: React.FC = () => {
+  
   const [positionIndexes, setPositionIndexes] = useState<number[]>([0, 1, 2, 3, 4]);
   const dragControls = useAnimation();
   const sliderWrapperRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
+  const [projects, setprojects] = useState([])
+useEffect(()=>{
 
+
+  (async function(){
+
+  try {
+    
+    const response =await fetch(`https://portfolio-l47727dv4-anandas-projects-91b9a04e.vercel.app/api/projects`)
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch projects");
+  }
+  const projects = await response.json();
+  const updatedIndexes = Array.from({ length: 5 }, (_, i) => i);
+  setPositionIndexes(updatedIndexes);
+
+  console.log('response', response)
+  setprojects(projects?.data?.Projects?.result)
+} catch (error) {
+    
+}
+}()
+);  
+},[])
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
@@ -64,6 +84,9 @@ const ProjectSlider: React.FC = () => {
     right1: { x: "50%", scale: 0.7, zIndex: 3 },
   };
 
+
+  console.log('proj', projects)
+
   return (
     <>
     <div
@@ -89,47 +112,7 @@ const ProjectSlider: React.FC = () => {
       ref={sliderWrapperRef}
     >
       
-      {[
-        {
-          src: "/blloddonation.png",
-          title: "Blood Donation System",
-          slug:"blood-donation-system",
-          description:
-            "Web app for blood donation system, it is build with nextjs with postgresql database",
-        },
-        {
-          src: "/propertycontroll.png",
-          title: "property control",
-          slug:"propertycontrol",
-
-          description:
-            "It is web app for properties management, here 4 role, owner, tenenant, manager, worker,",
-        },
-        {
-          src: "/hrms.png",
-          title: "hrms -employee management website",
-          slug:"hrms-employee-management",
-
-          description:
-            "It is web app for employee management, employee esi, epf salary deduction all are calculated here, emplye employee leave calculation",
-        },
-        {
-          src: "/knighthunt.png",
-          title: "knighthunt - Ecommerce website",
-          slug:"ecommerce-website-techwens",
-
-          description:
-            "It is a ecommerce website for mainly Tshirts, it is build with nextjs with typescript with postgresql database",
-        },
-        {
-          src: "/techwenssite.png",
-          title: "Techwens Website",
-          slug:"techwens-website",
-
-          description:
-            "COmpany website for tech wens, it is build with nextjs with postgresql database",
-        },
-      ].map(({title,description,src,slug}: any, index: number) => (
+      {projects.map(({title,description,image:src,slug}: any, index: number) => (
         <motion.div
           key={index}
           className="rounded-[12px] absolute md:w-[40%] w-full"

@@ -1,5 +1,7 @@
+"use client"
+
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const projects=[
   {
@@ -51,13 +53,39 @@ const projects=[
 
 const ProjectDetailspage = ({ params }: { params: { projectdetails: string } }) => {
 
-  const findProject=projects.find(it=>it.slug===params.projectdetails);
+
+
+  const [findProject, setprojects] = useState({})
+  
+useEffect(()=>{
+
+
+  (async function(){
+
+  try {
+    
+    const response =await fetch(`https://portfolio-l47727dv4-anandas-projects-91b9a04e.vercel.app/api/projects/${params.projectdetails}`)
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch projects");
+  }
+  const projects = await response.json();
+
+  console.log('response', response)
+  setprojects(projects?.data)
+} catch (error) {
+    
+}
+}()
+);  
+},[]);
+
 
     return (
         <><section className="text-white my-20" id="about"><div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
 
 
-         {findProject?.src ? <Image  alt='fghjkl' width={500} height={500}  style={{ color: 'transparent' }}  src={findProject?.src} />
+         {findProject?.image ? <Image  alt='fghjkl' width={500} height={500}  style={{ color: 'transparent' }}  src={findProject?.image} />
          
         : 
         <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -67,13 +95,13 @@ const ProjectDetailspage = ({ params }: { params: { projectdetails: string } }) 
           <div className="mt-4 md:mt-0 text-left flex flex-col h-full"><h2 className="text-4xl font-bold text-white mb-4">About Project</h2><p className="text-base lg:text-lg">{findProject?.description}</p>
         
       <div className="flex gap-4 my-4">    
-
-                 {(findProject?.technologiesUsed ||[]).map(it=>(
+{/* 
+                 {(findProject||[]).map(it=>(
 
                    <kbd key={it} className="px-2 py-1.5 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">{it}</kbd>
                    
                   ))
-                   }
+                   } */}
       </div>
 
 
